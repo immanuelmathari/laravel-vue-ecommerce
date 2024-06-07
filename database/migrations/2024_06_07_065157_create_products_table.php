@@ -20,9 +20,9 @@ return new class extends Migration
             $table->integer('image_mine')->nullable();
             $table->longText('description')->nullable();
             $table->decimal('price', 10,2);
-            $table->foreignId(User::class, 'created_by')->nullable();
-            $table->foreginId(User::class, 'updated_by')->nullable();
-            $table->softDeletes(); // adds
+            $table->foreignIdFor(User::class, 'created_by')->nullable();
+            $table->foreignIdFor(User::class, 'updated_by')->nullable();
+            $table->softDeletes(); // adds deleted at and deleted by fields
             $table->timestamps();
         });
     }
